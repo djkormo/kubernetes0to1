@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  auth: a3ViZXJuZXRlczokYXByMSRpQjIwU2s4cCRaU0pZWEFKUlZ2QUZySlZpaHNpSnMu
+kind: Secret
+metadata:
+  name: basic-auth
+type: Opaque

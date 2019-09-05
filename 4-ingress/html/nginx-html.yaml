@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  name: nginxrs-html
+  labels:
+    app: nginx-html
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: nginx-html
+  template:
+    metadata:
+      name: nginx-html
+      labels:
+        app: nginx-html
+    spec:
+      containers:
+      - name: nginx
+        image: nginxdemos/hello
+        ports:
+        - containerPort: 80

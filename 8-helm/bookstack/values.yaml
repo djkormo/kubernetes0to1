@@ -1,0 +1,6 @@
+ingress:
+  enabled: true
+  annotations: {}
+  path: /
+  hosts:
+    - bookstack.192.168.99.100.nip.io

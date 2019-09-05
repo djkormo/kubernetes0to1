@@ -1,0 +1,20 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: curl
+spec:
+  schedule: "* * * * *" # ten sam format co cronjob
+  concurrencyPolicy: Forbid # domyślnie allow
+  successfulJobsHistoryLimit: 3 # domyslna wartosc
+  failedJobsHistoryLimit: 1 # domyslna wartosc
+  jobTemplate:
+    spec:
+      template: # template, tak samo jak wcześniej, zawiera informacje o Pod
+        spec:
+          containers:
+            - name: curl
+              image: appropriate/curl
+              args:
+              - -fsSL
+              - http://requestbin.net/r/1nhre7g1
+          restartPolicy: OnFailure
